@@ -58,10 +58,10 @@ import java.util.Stack;
  * see http://pooh.poly.asu.edu/Ser321
  * @author Tim Lindquist (Tim.Lindquist@asu.edu) CIDSE - Software Engineering,
  *                       IAFSE, ASU at the Polytechnic campus
- * @file    BrowserStudent.java
+ * @file    Browser.java
  * @date    February, 2018
  **/
-public class BrowserStudent extends BrowserGUI
+public class Browser extends BrowserGUI
                             implements ActionListener,HyperlinkListener {
 
    private static final boolean debugOn = true;
@@ -69,7 +69,7 @@ public class BrowserStudent extends BrowserGUI
    private URL helpURL;
    private Stack<URL> urlsVisited;
 
-   public BrowserStudent() {
+   public Browser() {
       super(".");
       WindowListener wl = new WindowAdapter() {
          public void windowClosing(WindowEvent e) {System.exit(0);}
@@ -180,7 +180,7 @@ public class BrowserStudent extends BrowserGUI
    private void initHelp() {
       String s = null;
       try {
-         s = "http://pooh.poly.asu.edu/Ser321/Assigns/Assign3/assign3.html";
+         s = "http://localhost:8080/www/Ser321/index.html";
          debug("Help URL is " + s);
          helpURL = new URL(s);
          urlTF.setText(helpURL.toString());
@@ -206,7 +206,7 @@ public class BrowserStudent extends BrowserGUI
    }
 
    public static void main(String[] args) {
-      System.out.println("syntax: java -cp classes ser321.http.client.BrowserStudent");
-      new BrowserStudent();
+      System.out.println("syntax: java -cp classes ser321.http.client.Browser");
+      new Browser();
    }
 }

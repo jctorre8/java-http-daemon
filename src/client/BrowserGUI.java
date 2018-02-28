@@ -61,7 +61,7 @@ public class BrowserGUI extends JFrame  {
    public BrowserGUI(String path) {
       super("Ser321 Browser");
       JPanel jp = new JPanel(new FlowLayout());
-      urlTF = new JTextField("http://localhost:8080/Ser321/index.html",40);
+      urlTF = new JTextField("http://localhost:8080/www/Ser321/index.html",40);
       jp.add(urlTF);
       displayButt = new JButton("Show/Refresh");
       jp.add(displayButt);

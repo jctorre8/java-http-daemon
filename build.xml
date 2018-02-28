@@ -12,11 +12,11 @@
    <property name="ostype" value="${env.OSTYPE}"/>
 
    <target name="targets">
-      <echo message="Targets are clean, prepare, build.server, build.client, generate.example.jar, generate.httpclient.jar, targets"/>
+      <echo message="Targets are clean, prepare, build.server, build.client, targets"/>
       <echo message="base directory is: ${basedir}"/>
-      <echo message="execute sample with: java -cp classes ser321.http.client.BrowserStudent" />
+      <echo message="execute sample with: java -cp classes ser321.http.client.Browser" />
       <echo message="execute your client with: java -cp classes ser321.http.client.Browser http://${server.host}:${port.num}/Ser321/index.html"/>
-      <echo message="execute your server with: java -cp classes ser321.http.server.HttpTCPServer ${port.num}"/>
+      <echo message="execute your server with: java -cp classes ser321.http.server.ThreadedServer ${port.num}"/>
       <echo message="execute grader client with: java -jar ${lib.dir}/HttpClient.jar ${server.host} ${port.num} Ser321/index.html"/>
    </target>
 
@@ -58,18 +58,5 @@
      </javac>
    </target>
 
-   <target name="generate.example.jar" depends="prepare"
-           description="generate jar of example project for students">
-     <jar destfile="${lib.dir}/assign6Sample.jar">
-            <fileset dir="../" includes="Assign6/build.xml,Assign6/www/*,Assign6/www/*/*,Assign6/www/*/*/*,Assign6/www/*/*/*/*,Assign6/src/client/BrowserStudent.java,Assign6/src/client/BrowserGUI.java"/>
-     </jar>
-   </target>
-
-   <target name="generate.httpclient.jar" depends="build.client"
-           description="create executable jar for grader.">
-      <jar destfile="${lib.dir}/HttpClient.jar" manifest="manifestHttpClient.txt">
-         <fileset dir="classes" includes="ser321/http/client/**" />
-      </jar>
-   </target>
 
 </project>
